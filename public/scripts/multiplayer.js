@@ -336,6 +336,9 @@ function reduceCounter(){
   contextPlayer.fillText(counter, canvasPlayer.width / 2, canvasPlayer.height / 2);
   
   if(counter == 0){
+    score = 0;
+    lines = 0;
+    level = 0;
     sounds.start.play();
     clearInterval(interval);
     contextPlayer.clearRect(0,0,canvasPlayer.width,canvasPlayer.height);
