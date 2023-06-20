@@ -1,0 +1,213 @@
+.pieces{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hold{
+    padding: 10px;
+    float: left;
+    width: 80px;
+    height: 80px;
+    border: 2px solid white;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    margin: 25px 25px 25px 0;
+}
+
+.hold.futur{
+    float : left;
+    height: 500px;
+}
+
+canvas {
+    border: 2px solid white;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+}
+
+.infos{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.infos .scores{
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 500;
+    width: 200px;
+    height: auto;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    margin: 20px;
+}
+
+.infos .divbutton{
+    margin: 20px;
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.infos .divbutton .button{
+    backdrop-filter: blur(10px);
+    margin: 5px;
+    padding: 5px;
+    height: 40px;
+    background: transparent;
+    border: #fff solid 2px;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    color: #fff;
+    transition: .3s;
+}
+
+.infos .divbutton .button:hover {
+    background-color: #fff;
+    color: #000;
+    transition: .3s;
+}
+
+.settings{
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;   
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    border: #fff solid 2px;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    margin:  100px  0 0 50px ;
+    align-items: center;
+    justify-content: center;
+    scale: 0;
+    transition: .3s;
+}
+
+.settings.active{
+    scale: 1;
+    transition: .3s;
+}
+
+.settings h2{
+    font-size: 2.5em;
+    font-weight: 500;
+}
+
+.settings hr{
+    width: 100%;
+    margin: 10px 0 10px 0;
+    border: #fff solid 2.5px;
+}
+
+.settings-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-body h2{
+    font-size: 1.5em;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.settings-body h2 + hr{
+    width: 50%;
+    border: #fff solid 1.5px;
+}
+
+.controls-inputs{
+    text-align: right;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 5px;
+    align-items: center;
+}
+
+.controls input{
+    height: 30px;
+    border: #fff solid 2px;
+    background-color: transparent;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+    width: 50%;
+    float: right;
+}
+
+.controls-inputs p{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    text-align: left;
+    float: left;
+}
+
+.settings-footer{
+    margin: 10px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.settings-footer button{
+    margin: 5px;
+    padding: 5px;
+    height: 30px;
+    border: #fff solid 2px;
+    background-color: transparent;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+}
+
+.music input{
+    -webkit-appearance: none;
+    outline: none;
+    background: #fff;
+    height: 5px;
+}
+
+.music input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.listening{
+    background-color: #fff;
+    color: #000;
+    transition: .3s;
+}

@@ -1,0 +1,235 @@
+.wrapper{
+    position: absolute;
+    width: 350px;
+    height: 450px;
+    background: rgba(238, 232, 232, 0.40);
+    border: 2px solid rgba(255, 255, 255, .8);
+    border-radius: 1em;
+    box-shadow: 0 0 40px rgba(0, 0, 0, .6);
+    backdrop-filter: blur(10px);
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    transition: .3s ease;
+    overflow: hidden;
+   
+}
+
+.wrapper.display-on{
+    transform: scale(1);
+    transition: .3s ease;
+}
+
+.wrapper .box-form{ 
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .box-form.login{
+    transition: .3s ease;
+    transform: translateX(0);
+}
+
+.wrapper .box-form.register{
+    position: absolute;
+    transition: .3s ease ;
+    transform: translateX(350px);
+}
+
+.wrapper.active{
+    height: 500px;
+}
+
+.wrapper.active .box-form.login{
+    transition: .3s ease;
+    transform: translateX(-350px);
+}
+
+.wrapper.active .box-form.register{
+    transition: .3s ease;
+    transform: translateX(0);
+}
+
+.wrapper .close{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 50px;
+    height: 50px;
+    background: rgb(60, 60, 60);
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: .5em;
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+.box-form h2{
+    justify-content: center;
+    font-size: 3em;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.inputBox{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 20px 0;
+    border-bottom: 2.5px solid rgb(60, 60, 60); 
+    
+}
+
+.inputBox Label{
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+    font-size: 1em;
+    font-weight: 500;
+    color: rgb(60, 60, 60);
+    pointer-events: none;
+    transition: .3s;
+}
+
+.inputBox input:hover ~ label,
+.inputBox input:focus ~ label,
+.inputBox input:valid ~ label{
+    top: -10px;
+    transform: translateY(0%);
+}
+
+
+.inputBox input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 600;
+    transition: .3s;
+    padding: 0 35px 0 5px;
+}
+
+.inputBox .icon{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    font-size: 1.4em;
+    color: rgb(60, 60, 60);
+    pointer-events: none;
+}
+
+
+.remember-forgot{
+    display: flex;
+    font-size: 1em;
+    font-weight: 500;
+    color: #fff;
+    justify-content: space-between;
+    margin: -10px 0 20px 0;
+}
+
+.remember-forgot label input{
+    accent-color: rgb(60, 60, 60);
+    margin-right: 10px;
+}
+
+.remember-forgot a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.btn{
+    width: 100%;
+    height: 50px;
+    background: rgb(60, 60, 60);
+    border: none;
+    outline: none;
+    border-radius: .5em;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    color: #fff;
+    margin: 10px 0 10px 0;
+}
+
+.register{
+    font-size: 1em;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    margin: 10px 0 10px 0;
+}
+
+.register p a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register p a:hover{
+    text-decoration: underline;
+}
+
+
+.choice{
+    position: relative;
+    width: 500px;
+    margin:  0 50px 0 50px;
+    background: rgba(238, 232, 232, 0.40);
+    border: 2px solid rgba(255, 255, 255, .8);
+    border-radius: 1em;
+    box-shadow: 0 0 40px rgba(0, 0, 0, .6);
+    transform: scale(1);
+    transition: .3s ease;
+    backdrop-filter: blur(10px);
+
+}
+
+.choice.display-none{
+    transform: scale(0);
+    transition: .3s ease;
+}
+
+.choice h1{
+    display: flex;
+    color: #fff;
+    font-size: 3em;
+    font-weight: 500;
+    margin: 30px 30px 0 30px  ;
+    justify-content: center;
+    align-items: center;
+}
+
+.choice div{
+    height: auto;
+    padding: 20px;
+}
+
+.choice div p{
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #fff;
+    margin: 10px 0 10px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.choice div button{
+    position: relative;
+    bottom: 0;
+}

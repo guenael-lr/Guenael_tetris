@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Play Guetris !">
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="icon" type="image/x-icon" href="/styles/ressources/favicon.ico">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <title>Guetris</title>
+</head>
+<body>
+    <script src="/socket.io/socket.io.js"></script>
+   
+    <header>
+        <h2 class="logo" onclick="location.href='index.html';" style="cursor: pointer;">Guetris</h2>
+        <nav class="nav">
+            <a href="tetris.html">Solo</a>
+            <a href="multiplayer.html">Multiplayer</a>
+            <a href="score.html">Score</a>
+        </nav>
+        <button class="btnLoginPopUp">Login</button>
+        <div class="username display-none ">
+            <p class="username-account"></p>
+            <div class="user-menu display-none">
+                <nav class="nav">
+                    <a href="#" onclick="alert('not available yet');" class="accountBtn">Account</a>
+                    <a href="#" onclick="logOut();" class="LogoutBtn">Logout</a>
+                </nav>
+            </div>
+        </div>
+       
+    </header>
+    <div class="choice div-solo">
+        <h1>SOLO</h1>
+        <div>
+            <p>Solo play in the classic mode of tetris !</p>
+            <p>You can see your best score in the <a>Leaderboard</a>.</p>
+            <button class="btn" onclick="location.href='tetris.html';">Solo play</button>
+        </div>
+        
+    </div>
+    <div class="choice div-multi">
+        <h1>MULTIPLAYER</h1>
+        <div>
+            <p>Play against strangers or your friends !</p>
+            <p>Create private rooms or go to public ones and fight >:D</p>
+            <button class="btn" onclick="location.href='multiplayer.html';">Multiplayer</button>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <span class="close">    
+            <ion-icon name="close"></ion-icon>
+        </span>
+        <div class="box-form login">
+            <h2>Login</h2>
+            <form action="javascript:void(0);" onsubmit="loginCheck()">
+                <div class="inputBox">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="text" required id ="usr-log">
+                    <label>Username</label>
+                </div>
+                <div class="inputBox">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" id="mdp-log"  required >
+                    <label>Password</label>
+                </div> 
+                <div class="remember-forgot">
+                    <label><input type="checkbox" id="rememberMe-log" value="true">Remember me</label>
+                    <a href="#">Forgot Password</a>
+                </div>
+                <input type="submit" class="btn" value="Login">
+                <div class="register">
+                    <p>You don't have an account ?
+                        <a href="#" class="register-link">Register</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        
+        <div class="box-form register">
+            <h2>Register</h2>
+            <form action="javascript:void(0);" onsubmit="registerCheck()">
+                <div class="inputBox">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="text" required id="usr-reg">
+                    <label>Username</label>
+                </div>
+                <div class="inputBox">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="text" required id="mail-reg">
+                    <label>Email</label>
+                </div>
+                <div class="inputBox">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" required id="mdp-reg">
+                    <label>Password</label>
+                </div> 
+                <div class="remember-forgot">
+                    <label><input type="checkbox" id="rememberMe-reg">Remember me</label>
+                    <a href="#">Forgot Password</a>
+                </div>
+                <input type="submit" class="btn registerBtn" value="Register">
+                <div class="register">
+                    <p>Already have an account ?
+                        <a href="#" class="login-link">Login</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+    <script src="scripts/cookies.js?v=5"></script>
+    <script src="scripts/index.js?v=5"></script>
+</body>
+
+</html>

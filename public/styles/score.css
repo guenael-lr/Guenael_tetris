@@ -1,0 +1,58 @@
+.leaderboard{
+    position: absolute;
+    width: auto;
+    height: 450px;
+    background: rgba(238, 232, 232, 0.40);
+    border: 2px solid rgba(255, 255, 255, .8);
+    border-radius: 1em;
+    box-shadow: 0 0 40px rgba(0, 0, 0, .6);
+    backdrop-filter: blur(20px);
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    transition: .3s ease;
+    overflow: hidden;
+}
+
+.leaderboard h2{
+    margin: 15px 25px 10px 25px;
+    float: top;
+    justify-content: center;
+    font-size: 3em;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: underline;
+}
+
+.leaderboard .score-list{ 
+    width: 100%;
+    padding: 40px;
+}
+
+.leaderboard table{
+    color: #fff;
+    border-collapse: collapse;
+    width: 100%;   
+    height: auto; 
+}
+.leaderboard div{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+.leaderboard .tbody .header{
+    justify-content: space-between;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 500;
+    padding: 5px;
+    text-decoration: underline;
+}
+
+th, td {
+    padding: 5px;
+  }
+
+  hr{
+    border: 2px solid #fff;
+  }

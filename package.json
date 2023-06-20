@@ -1,0 +1,28 @@
+{
+  "name": "tetris_guenael_le_roux",
+  "version": "1.0.0",
+  "description": "Tetris website with multiplayer and solo ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "GLR",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
+    "random-words": "^2.0.0",
+    "socket.io": "^4.6.2"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guenael-lr/tetris.git"
+  },
+  "bugs": {
+    "url": "https://github.com/guenael-lr/tetris/issues"
+  },
+  "homepage": "https://github.com/guenael-lr/tetris#readme"
+}

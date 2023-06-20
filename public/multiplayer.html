@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Play Guetris !">
+  <meta name="viewport" content="width=device-width, 
+  initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles/tetris.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/multiplayer.css">
+  <link rel="icon" type="image/x-icon" href="/styles/ressources/favicon.ico">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  
+  
+  <title>Guetris</title>
+</head>
+<body>
+    <header>
+        <h2 class="logo" onclick="location.href='index.html';"style="cursor: pointer;">Guetris</h2>
+        <nav class="nav">
+            <a href="tetris.html">Solo</a>
+            <a href="multiplayer.html">Multiplayer</a>
+            <a href="score.html">Score</a>
+        </nav>
+      
+        <button class="btnLoginPopUp" onclick="location.href='index.html?login=true'">Login</button>
+        <div class="username active display-none">
+            <p class="username-account"></p>
+            <div class="user-menu display-none">
+                <nav class="nav">
+                    <a href="#" onclick="alert('not available yet');" class="accountBtn">Account</a>
+                    <a href="#" onclick="logOut();" class="LogoutBtn">Logout</a>
+                </nav>
+            </div>
+        </div>
+        
+    </header>
+    <script src="/socket.io/socket.io.js"></script>
+    <div class="pieces">
+      <canvas class="hold "id="hold" width="80" height="80"></canvas>
+      <canvas class="hold futur" id="queue" width="80" height="400" ></canvas>
+    </div>
+    <canvas width="320" height="650" id="gamePlayer"></canvas>
+
+    <div class="infos">
+      <div class="divbutton">
+        <button class="button" id="newgame" onclick="startGame()">Launch Game</button>
+        <button class="button" id="newgame" onclick="showLobby()">Lobby</button>
+        <button class="button" id="settings" onclick="showSettings()">Settings</button>
+      </div>
+  
+      <div class="scores"> 
+        <p id="score">Score:</p>
+        <p id="line">Lines:</p>
+        <p id="level">Level:</p>
+        <p id="time">Time:</p>
+      </div>
+
+      <div class="scores"> 
+        <h2>Room infos</h2>
+        <div class="roominfos">
+          <p class="roomName">Room name:</p>
+          <p class="roomStatus">Status:</p>
+          <p class="roomPlayers">Players:</p>
+
+        </div>
+      </div>
+    </div>
+    
+    <div class="multiplayer-zone">
+        <div class="div-multi">
+          <canvas width="100" height="200" id="adv1" class="game-multi"></canvas>
+          <canvas width="100" height="200" id="adv2" class="game-multi"></canvas>
+          <canvas width="100" height="200" id="adv3" class="game-multi"></canvas>
+        </div>
+        <div class="div-multi">
+          <canvas width="100" height="200" id="adv4" class="game-multi"></canvas>
+          <canvas width="100" height="200" id="adv5" class="game-multi"></canvas>
+          <canvas width="100" height="200" id="adv6" class="game-multi"></canvas>
+        </div>
+        <div class="div-multi">
+          <canvas width="100" height="200" id="adv7" class="game-multi"></canvas>
+          <canvas width="100" height="200" id="adv8" class="game-multi"></canvas>
+          <canvas width="100" height="200" id="adv9" class="game-multi"></canvas>
+        </div>
+
+        <div class="lobby">
+          <h2>Lobby</h2>
+          <hr>
+          <div class="lobby-body">
+            <h2>Public Rooms</h2>
+            <hr>
+            <div class="list-room">
+            </div>
+          </div>
+          <div class="lobby-body">
+            <hr>
+            <h2>Create Game</h2>
+            <hr>
+            <form class="creation" onsubmit="return false">
+              <div class="name">
+                <p>Room name</p>
+                <input type="text" id="roomName" required>
+              </div>
+              <div class="param">
+                <div class="content">
+                  <p>Max player</p>
+                  <p>(Up to 10)</p>
+                  <input type="number" id="maxPlayer" min="2" max="10" value="2">
+                </div>
+                <div class="content">
+                  <p>Private</p>
+                  <input type="checkbox" id="private">
+                </div>
+              </div>
+              <div class="lobby-footer">
+                <button type="submit" class="button" onclick="createGame()">Create Game</button>
+                <button class="button" onclick="cancelSettings()">Cancel</button>
+              </div>
+            </div>
+            </form>
+        </div>
+          
+    </div>
+    <form class="settings" onsubmit="return false">
+      <h2>Settings</h2>
+      <hr>
+      <div class="settings-body">
+        <h2>Sound</h2>
+        <hr>
+        <div class="music">
+          <p>Music</p>
+            <input type="range" min="0" max="100" value="100" class="slider" id="musicSlider">
+          <p>Sound</p>
+            <input type="range" min="0" max="100" value="100" class="slider" id="soundSlider">
+        </div>
+        <h2>Controls</h2>
+        <hr>
+        <div class="controls">
+          <div class="controls-inputs">
+            <p>Left</p><input class="settings-input" type="text" id="left" value="37">
+          </div>
+          <div class="controls-inputs">
+            <p>Right</p><input class="settings-input" type="text" id="right" value="39">
+          </div>
+          <div class="controls-inputs">
+            <p>Down</p><input class="settings-input" type="text" id="down" value="40">
+          </div>
+          <div class="controls-inputs">
+            <p>Rotate</p><input class="settings-input"  type="text" id="rotate" value="38">
+          </div>
+          <div class="controls-inputs">
+            <p>Hold</p><input class="settings-input" type="text" id="holdpiece" value="67">
+          </div>
+          <div class="controls-inputs">
+            <p>Hard Drop</p><input class="settings-input" type="text" id="hardDrop" value="32">
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="settings-footer">
+        <button type="submit "btn" onclick="saveSettings()">Save</button>
+        <button class="btn" onclick="resetSettings()">Reset</button>
+        <button class="btn" onclick="cancelSettings()">Cancel</button>
+      </div>
+    </form>
+
+<script src="scripts/cookies.js?v=5"></script> 
+<script src="scripts/lobby.js?v=5"></script> 
+<script src="scripts/settings.js?v=5"></script>
+<script src="scripts/multiplayer.js?v=5"></script>
+
+
+</body>

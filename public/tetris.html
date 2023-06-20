@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Play Guetris !">
+  <meta name="viewport" content="width=device-width, 
+  initial-scale=1.0">
+
+  <link rel="stylesheet" href="styles/tetris.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="icon" type="image/x-icon" href="/styles/ressources/favicon.ico">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  
+  
+  <title>Guetris</title>
+</head>
+<body>
+    <header>
+        <h2 class="logo" onclick="location.href='index.html';"style="cursor: pointer;">Guetris</h2>
+        <nav class="nav">
+            <a href="tetris.html">Solo</a>
+            <a href="multiplayer.html">Multiplayer</a>
+            <a href="score.html">Score</a>
+        </nav>
+        <button class="btnLoginPopUp" onclick="location.href='index.html?login=true'">Login</button>
+        <div class="username display-none ">
+            <p class="username-account"></p>
+            <div class="user-menu display-none">
+                <nav class="nav">
+                    <a href="#" onclick="alert('not available yet');" class="accountBtn">Account</a>
+                    <a href="#" onclick="logOut();" class="LogoutBtn">Logout</a>
+                </nav>
+            </div>
+        </div>
+        
+    </header>
+    <script src="/socket.io/socket.io.js"></script>
+   
+    <div class="pieces">
+      <canvas class="hold "id="hold" width="80" height="80"></canvas>
+      <canvas class="hold futur" id="queue" width="80" height="400" ></canvas>
+    </div>
+    <canvas width="320" height="650" id="game"></canvas>
+
+    <div class="infos">
+      <div class="divbutton">
+        <button class="button" id="newgame" onclick="buttonStartGame()">Launch Game</button>
+        <!--  <button class="button ">Lobby</button> -->
+        <button class="button" id="settings" onclick="showSettings()">Settings</button>
+      </div>
+  
+      <div class="scores"> 
+        <p id="score">Score:</p>
+        <p id="line">Lines:</p>
+        <p id="level">Level:</p>
+        <p id="time">Time:</p>
+      </div>
+    </div>
+
+    <form class="settings" onsubmit="return false">
+      <h2>Settings</h2>
+      <hr>
+      <div class="settings-body">
+        <h2>Sound</h2>
+        <hr>
+        <div class="music">
+          <p>Music</p>
+            <input type="range" min="0" max="100" value="100" class="slider" id="musicSlider">
+          <p>Sound</p>
+            <input type="range" min="0" max="100" value="100" class="slider" id="soundSlider">
+        </div>
+        <h2>Controls</h2>
+        <hr>
+        <div class="controls">
+          <div class="controls-inputs">
+            <p>Left</p><input class="settings-input" type="text" id="left" value="37">
+          </div>
+          <div class="controls-inputs">
+            <p>Right</p><input class="settings-input" type="text" id="right" value="39">
+          </div>
+          <div class="controls-inputs">
+            <p>Down</p><input class="settings-input" type="text" id="down" value="40">
+          </div>
+          <div class="controls-inputs">
+            <p>Rotate</p><input class="settings-input"  type="text" id="rotate" value="38">
+          </div>
+          <div class="controls-inputs">
+            <p>Hold</p><input class="settings-input" type="text" id="holdpiece" value="67">
+          </div>
+          <div class="controls-inputs">
+            <p>Hard Drop</p><input  class="settings-input" type="text" id="hardDrop" value="32">
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="settings-footer">
+        <button type="submit "btn" onclick="saveSettings()">Save</button>
+        <button class="btn" onclick="resetSettings()">Reset</button>
+        <button class="btn" onclick="cancelSettings()">Cancel</button>
+      </div>
+    </form>
+    <script src="scripts/cookies.js?v=5"></script>  
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/tetris-solo.js?v=5"></script>
+</body>

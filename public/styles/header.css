@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-size: cover;
+    background-image: url("ressources/background.png");
+    background-attachment: fixed;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    min-height: 100vh;
+}
+
+header{
+    position: fixed;
+    background: rgba(238, 232, 232, 0.40);
+    top: 0;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    padding: 20px 50px 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo{
+    position: relative;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+}
+
+.nav{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+.nav a {
+    position: relative;
+    font-size: 1.5em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 100px;
+}
+.nav a::after{
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: -6px;
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .5s ease;
+}
+
+.nav a:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.btnLoginPopUp {
+    width: 130px;
+    height: 40px;
+    background: transparent;
+    border: #fff solid 2px;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    color: #fff;
+    transition: .3s;
+
+}
+
+
+.btnLoginPopUp:hover {
+    background-color: #fff;
+    color: #000;
+    transition: .3s;
+}
+
+.btnLoginPopUp.display-none {
+    display: none;
+}
+.username {
+    width: 130px;
+    height: 40px;
+    display: flex;
+    border: #fff solid 2px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 500;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.username.display-none {
+    display: none;
+}
+
+.username p{
+    pointer-events: none;
+    position: absolute;
+    font-size: 1.5em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btnLoginPopUp:hover {
+    text-decoration: underline;
+}
+
+.username .user-menu{
+    margin-top: 160px;
+    background: rgba(238, 232, 232, 0.40);
+    border: 2px solid rgba(255, 255, 255, .8);
+    border-radius: 1em;
+    box-shadow: 0 0 40px rgba(0, 0, 0, .6);
+    backdrop-filter: blur(10px);
+    width: inherit;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    overflow:hidden;
+}
+.username .user-menu.display-none{
+    display: none;
+}
+.user-menu nav {
+    padding: 10px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.user-menu a{
+    display: inline-block;
+    margin: 5px 0 5px 0;
+    position: relative;
+    font-size: 1.5em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.display-none{
+    display: none;
+}
