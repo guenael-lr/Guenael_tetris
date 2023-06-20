@@ -59,6 +59,7 @@ function createGame(){
         maxPlayers: inputMaxPlayers.value,
         private: private.checked
     });
+    alert("https://guenael.ezshaping.pw/multiplayer.html?" + inputRoomName.value);
     showLobby();
 }
 
